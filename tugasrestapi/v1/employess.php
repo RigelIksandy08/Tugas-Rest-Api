@@ -9,9 +9,9 @@ switch($request_method) {
     case 'GET':
         if(!empty($_GET['id'])) {
             $id = intval($_GET['id']);
-            get_employess($id);
+            get_employee($id);
         }else{
-            get_employess();
+            get_employees();
         }
     break;
 
@@ -25,7 +25,7 @@ switch($request_method) {
     break;
 
     case 'DELETE':
-        $id = intval($_GET[$id]);
+        $id = intval($_GET["id"]);
         delete_employee($id);
     break;
 
@@ -34,7 +34,7 @@ switch($request_method) {
     break;
 }
 
-function get_employees($id=0){
+function get_employees(){
     global $connection;
     $query = "SELECT * FROM tb_employee";
     $response = array();
